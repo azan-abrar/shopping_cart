@@ -26,3 +26,5 @@ FACEBOOK_APP_ID: abc123
 FACEBOOK_APP_ID: def456
 AWS_KEY_ID: ghi123
 AWS_KEY_SECRET: jkl456
+AWS_HOST_NAME: assets.shopping_cart.com
+AWS_DIRECTORY: shopping_cart
