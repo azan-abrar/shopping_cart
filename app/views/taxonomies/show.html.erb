@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Parent:</strong>
+  <%= (@taxonomy.parent && (link_to @taxonomy.parent.name, @taxonomy.parent))||'N/A' %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @taxonomy.name %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= (@taxonomy.category && (link_to @taxonomy.category.name, @taxonomy.category))||'N/A' %>
+</p>
+
+<p>
+  <strong>Taxonomies:</strong>
+  <%= raw(@taxonomy.taxonomies.ordered.collect{|taxonomy| link_to taxonomy.name, taxonomy}.join(', ')) %>
+</p>
+
+<%= link_to 'Back', taxonomies_path %>

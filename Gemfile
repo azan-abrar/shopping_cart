@@ -18,6 +18,12 @@ gem 'devise'
 gem 'figaro', '>= 1.0.0.rc1'
 gem 'mysql2'
 gem 'simple_form'
+gem 'cancancan', '~> 1.10'
+gem 'carrierwave'
+gem 'friendly_id', '~> 5.1.0'
+gem 'rails_admin'
+gem "fog-aws"
+gem 'fog'
 group :development do
   gem 'better_errors'
   gem 'quiet_assets'

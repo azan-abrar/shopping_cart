@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Categories</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Icon</th>
+      <th>Meta title</th>
+      <th>Meta keywords</th>
+      <th>Meta description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @categories.each do |category| %>
+      <tr>
+        <td><%= link_to category.name, category %></td>
+        <td><%= category.description %></td>
+        <td><%= category.icon %></td>
+        <td><%= category.meta_title %></td>
+        <td><%= category.meta_keywords %></td>
+        <td><%= category.meta_description %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

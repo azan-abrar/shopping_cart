@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Taxonomies</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Parent</th>
+      <th>Name</th>
+      <th>Category</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @taxonomies.each do |taxonomy| %>
+      <tr>
+        <td><%= (taxonomy.parent && (link_to taxonomy.parent.name, taxonomy.parent))||'N/A' %></td>
+        <td><%= link_to taxonomy.name, taxonomy %></td>
+        <td><%= (taxonomy.category && (link_to taxonomy.category.name, taxonomy.category))||'N/A' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -11,7 +11,44 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150320132038) do
+ActiveRecord::Schema.define(version: 20150324090943) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name",             limit: 255
+    t.text     "description",      limit: 65535
+    t.string   "icon",             limit: 255
+    t.string   "meta_title",       limit: 255
+    t.string   "meta_keywords",    limit: 255
+    t.text     "meta_description", limit: 65535
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+  end
+
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string   "slug",           limit: 255, null: false
+    t.integer  "sluggable_id",   limit: 4,   null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope",          limit: 255
+    t.datetime "created_at"
+  end
+
+  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
+
+  create_table "taxonomies", force: :cascade do |t|
+    t.integer  "parent_id",   limit: 4
+    t.string   "name",        limit: 255
+    t.string   "slug",        limit: 255
+    t.integer  "order",       limit: 4
+    t.integer  "category_id", limit: 4
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  add_index "taxonomies", ["category_id"], name: "index_taxonomies_on_category_id", using: :btree
+  add_index "taxonomies", ["parent_id"], name: "index_taxonomies_on_parent_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false

@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @category.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @category.description %>
+</p>
+
+<p>
+  <strong>Icon:</strong>
+  <%= @category.icon %>
+</p>
+
+<p>
+  <strong>Meta title:</strong>
+  <%= @category.meta_title %>
+</p>
+
+<p>
+  <strong>Meta keywords:</strong>
+  <%= @category.meta_keywords %>
+</p>
+
+<p>
+  <strong>Meta description:</strong>
+  <%= @category.meta_description %>
+</p>
+
+<p>
+  <strong>Taxonomies:</strong>
+  <%= raw(@category.taxonomies.ordered.collect{|taxonomy| link_to taxonomy.name, taxonomy}.join(', ')) %>
+</p>
+
+<%= link_to 'Back', categories_path %>
