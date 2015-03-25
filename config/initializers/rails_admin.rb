@@ -31,4 +31,13 @@ RailsAdmin.config do |config|
     # history_index
     # history_show
   end
+  config.authorize_with do
+    if current_user.blank?
+      flash[:error] = "Access denied!"
+      redirect_to main_app.new_user_session_path
+    elsif !current_user.admin?
+      flash[:error] = "Access denied!"
+      redirect_to main_app.root_path
+    end
+  end
 end
